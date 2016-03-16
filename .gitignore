@@ -3,3 +3,6 @@
 Homestead.yaml
 Homestead.json
 .env
+/public/imgs/280x280/*
+/public/imgs/120x120/*
+/public/imgs/80x80/*
