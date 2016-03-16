@@ -1,9 +1,5 @@
 <?php
 
-Route::get('/', function(){
-	factory('App\Product')->create();
-});
-
 Route::group(['middleware' => 'web'], function(){
 	Route::get('/auth/register', 'Auth\AuthController@getRegister');
 	Route::post('/auth/register', 'Auth\AuthController@postRegister');
@@ -11,7 +7,7 @@ Route::group(['middleware' => 'web'], function(){
 	Route::post('/login', 'Auth\AuthController@postLogin');
 	Route::get('/logout', 'Auth\AuthController@logout');
 
-	//Route::get('/', 'PageController@home');
+	Route::get('/', 'PageController@home');
 });
 
 Route::get('product/create', 'ProductController@create');
