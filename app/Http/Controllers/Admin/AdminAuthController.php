@@ -35,7 +35,7 @@ class AdminAuthController extends AdminController
         
         $this->create($request->all());
 
-        return redirect('/admin/login');
+        return redirect('/admin/login')->with(['register-success' => 'Register successfully']);
     }
 
     /**
@@ -65,9 +65,9 @@ class AdminAuthController extends AdminController
     }
 
 
-    public function loginPost(Request $Request)
+    public function loginPost(Request $request)
     {
-    	if (! Auth::guard($this->guard)->attempt($Request->only('username', 'password'))) 
+    	if (! Auth::guard($this->guard)->attempt($request->only('username', 'password'), $request->has('remember'))) 
         {
             return redirect()->back()
                             ->withErrors(['auth' => 'Username/Password mismatch.']);

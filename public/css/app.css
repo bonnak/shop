@@ -5750,10 +5750,11 @@ button.close {
     display: none !important; } }
 
 #admin-app-layout #login {
+  position: fixed;
+  width: 600px;
   top: 50%;
-    top-left: 50%;
-    top-position: fixed;
-    top-transform: translate(-50%, -50%);
-    top-width: 600px; }
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
 
 /*# sourceMappingURL=app.css.map */

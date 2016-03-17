@@ -3,12 +3,21 @@
 @section('content')
 <div class="container">
     <div class="row" id="login">
+
+        <div class="col-md-12">
+            @if (session()->has('register-success'))
+                <div class="alert alert-success">
+                    {{ session()->get('register-success') }}
+                </div>
+            @endif
+        </div>
+
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                <div class="panel-heading">Shop admin</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/admin/login') }}">
-                        {!! csrf_field() !!}
+                        {!! csrf_field() !!}                        
 
                         @if ($errors->has('auth'))
                             <div class="alert alert-danger">

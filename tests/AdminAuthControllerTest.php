@@ -6,6 +6,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class AdminAuthControllerTest extends TestCase
 {
+    use DatabaseTransactions;
+
     /** @test */
     public function it_register_a_backend_user()
     {
@@ -20,5 +22,19 @@ class AdminAuthControllerTest extends TestCase
         		'username' => 'admin',
         		'email' => 'admin@info.com'
         	]);
+    }
+
+    /** @test */
+    public function it_login_a_user()
+    {     
+        $user = ['username' => 'admin', 'password' => '123456'];
+        
+        factory('App\AdminUser')->create($user);
+
+        $this->visit('/admin/login')
+            ->type($user['username'], 'username')
+            ->type($user['password'], 'password')
+            ->press('Login')
+            ->seePageIs('/admin/dashboard');
     }
 }

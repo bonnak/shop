@@ -20,6 +20,19 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
 
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
+
+        //$this->truncateTables();
+
         return $app;
+    }
+
+    /**
+     * Truncate all tables before starting testing.
+     * 
+     * @return void
+     */
+    protected function truncateTables()
+    {
+        \DB::table('admin_users')->truncate();
     }
 }
