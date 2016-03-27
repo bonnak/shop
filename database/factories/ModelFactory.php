@@ -32,6 +32,13 @@ $factory->define(App\AdminUser::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Role::class, function (Faker\Generator $faker) {
+    return [
+        'code' => $faker->word,
+        'description' => $faker->sentence,
+    ];
+});
+
 $factory->define(App\Product::class, function (Faker\Generator $faker) {
     return [
         'seller_id' => factory('App\AdminUser')->create()->id,

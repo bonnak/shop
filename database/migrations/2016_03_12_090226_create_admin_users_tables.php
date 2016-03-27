@@ -14,10 +14,12 @@ class CreateAdminUsersTables extends Migration
     {
         Schema::create('admin_users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('username')->unique()->index();      
-            $table->string('email')->unique();
+            $table->string('username')->unique()->index();  
+            $table->string('password', 60);    
+            $table->string('email');
             $table->string('fullname');
-            $table->string('password', 60);
+            $table->boolean('is_active')->default(1);
+            $table->timestamp('last_login')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

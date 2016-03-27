@@ -27,4 +27,15 @@ class AdminUser extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    /**
+     * A user can have many roles.
+     * 
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role', 'adminuser_role', 'adminuser_id', 'role_id')
+                    ->withTimestamps();
+    }
 }
