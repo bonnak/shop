@@ -17,7 +17,7 @@ class CreateAdminUsersTables extends Migration
             $table->string('username')->unique()->index();  
             $table->string('password', 60);    
             $table->string('email');
-            $table->string('fullname');
+            $table->string('full_name');
             $table->boolean('is_active')->default(1);
             $table->timestamp('last_login')->nullable();
             $table->rememberToken();

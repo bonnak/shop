@@ -25,14 +25,14 @@ class AdminAuthController extends AdminController
      * @return \Illuminate\Http\Response
      */
     public function registerPost(Request $request)
-    {
+    {        
     	$this->validate($request , [
             'username' => 'required|max:255|unique:admin_users',
             'email' => 'required|email|max:255|unique:admin_users',
-            'fullname' => 'required|max:255',
+            'full_name' => 'required|max:255',
             'password' => 'required|confirmed|min:6',
         ]);
-        
+
         $this->create($request->all());
 
         return redirect('/admin/login')->with(['register-success' => 'Register successfully']);
@@ -49,7 +49,7 @@ class AdminAuthController extends AdminController
         return AdminUser::create([
             'username' => $data['username'],
             'email' => $data['email'],
-            'fullname' => $data['fullname'],
+            'full_name' => $data['full_name'],
             'password' => $data['password']
         ]);
     }

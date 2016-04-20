@@ -38,15 +38,15 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('fullname') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('full_name') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Full name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" id="fullname" name="fullname" value="{{ old('fullname')}}">
+                                <input type="text" class="form-control" id="full_name" name="full_name" value="{{ old('full_name')}}">
 
-                                @if ($errors->has('fullname'))
+                                @if ($errors->has('full_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('fullname') }}</strong>
+                                        <strong>{{ $errors->first('full_name') }}</strong>
                                     </span>
                                 @endif
                             </div>

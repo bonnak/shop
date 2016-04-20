@@ -14,7 +14,7 @@ class AdminAuthControllerTest extends TestCase
     	$this->visit('/admin/register')
         	->type('admin', 'username')
         	->type('admin@info.com', 'email')
-        	->type('Admin', 'fullname')
+        	->type('Admin', 'full_name')
         	->type('123456', 'password')
         	->type('123456', 'password_confirmation')
         	->press('Register')

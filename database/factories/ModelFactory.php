@@ -26,7 +26,7 @@ $factory->define(App\AdminUser::class, function (Faker\Generator $faker) {
     return [
         'username' => $faker->username,
         'email' => $faker->email,        
-        'fullname' => $faker->name,
+        'full_name' => $faker->name,
         'password' => 123456,
         'remember_token' => str_random(10),
     ];
